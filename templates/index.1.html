@@ -1,0 +1,184 @@
+<!doctype html>
+<!--
+	Material Design Lite
+	Copyright 2015 Google Inc. All rights reserved.
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+			https://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License
+-->
+
+<html lang="en">
+<head>
+  	<title>Train of Hope Doodle</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+		<!--<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.yellow-orange.min.css" />-->
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-indigo.min.css" />
+		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+		<!--<link rel="shortcut icon" href="images/favicon.png"> -->
+		<link  type="text/css" rel="stylesheet" href="../static/styles.css">
+</head>
+
+<!-- Design the navigation bar -->
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Train Of Hope Events </h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+
+        </div>
+      </header>
+
+      <main class="mdl-layout__content">
+
+        <!-- Design the first tab -->
+
+        <div class="mdl-layout__tab-panel is-active" id="eventsOverview">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+
+                <!-- Grey circle -->
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--grey"></div>
+                </div>
+
+                <!-- Event details -->
+                  <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    <h3><br>{ Dance party }</h3>
+                    <h5><br>Place : { Wien 1200, Ospellgasse 11- 17 /5 /1 }</h5>
+
+                    <!-- yellow circle -->
+                    <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                      <div class="section__circle-container__circle mdl-color--primary">
+                        <h5>Date and time : { the date }</h5>
+                        <ul class="demo-list-two mdl-list">
+                          <!-------jinja----->
+                          <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-icon">directions_walk</i>
+                                <span>{name of the coming volnteers }
+                                </span>
+                                  <br><span class="mdl-list__item-sub-title">
+                                    <b>{his role or comptance }</b>
+                                  </span>
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                 <!-- Menu for still needed competances -->
+                  <button id="demo-menu-top-left"  class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">people</i>
+                  </button>
+                    <ul class="mdl-menu mdl-menu--top-left mdl-js-menu mdl-js-ripple-effect"  data-mdl-for="demo-menu-top-left">
+                      <!-- jinja to update-->
+                      <li class="mdl-menu__item">{ENGLISH }</li>
+                      <li class="mdl-menu__item">{ farsi }</li>
+                    </ul>
+                  Still needed competances
+          </section>
+        </div>
+
+        <!-- Design second tab -->
+
+        <div class="mdl-layout__tab-panel" id="signup">
+          <section class="section--footer mdl-color--white mdl-grid">
+            <!-- Grey circle -->
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div class="section__circle-container__circle mdl-color--grey section__circle--big">
+                <form action="#">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">First name...</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">Last name...</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">comptance...</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                    <label class="mdl-textfield__label" for="sample4">Phone Number...</label>
+                    <span class="mdl-textfield__error">Input is not a phone number!</span>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">Email...</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h4>Needed Information</h4>
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div class="section__circle-container__circle mdl-color--accent section__circle--big">
+                <form action="#">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">User name...</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">Password...</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h4>Sign up</h4>
+            </div>
+          </section>
+        </div>
+
+
+
+
+      <!-- Design the footer -->
+
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">
+            Train Of Hope
+          </div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="44444#">Create event</a></li>
+            <li><a href="#contact">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="mdl-mini-footer__right-section">
+          <button class="mdl-mini-footer__social-btn"></button>
+
+        </div>
+</footer>
+</body>
+</html>
+
+
+

@@ -1,0 +1,216 @@
+<!doctype html>
+<!--
+	Material Design Lite
+	Copyright 2015 Google Inc. All rights reserved.
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+			https://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License
+-->
+
+<html lang="en">
+<head>
+  	<title>Train of Hope Doodle</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-indigo.min.css" />
+		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+		<!-- http://jquery.com/ -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- app's own JavaScript -->
+    <script src="/static/scripts.js"></script>
+
+		<link  type="text/css" rel="stylesheet" href="../static/styles.css">
+</head>
+
+<!-- Design the navigation bar -->
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Train Of Hope Events </h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#step1" class="mdl-layout__tab is-active"> Step 1 of 3</a>
+          <a href="#step2" class="mdl-layout__tab">Step 2 of 3</a>
+          <a href="#step3" class="mdl-layout__tab">Step 3 of 3</a>
+        </div>
+      </header>
+
+      <main class="mdl-layout__content">
+
+        <!-- Design first tab-->
+
+        <div class="mdl-layout__tab-panel is-active" id="step1">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--red-100"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>What's the occasion?</h5>
+                  <form action="#"><br>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="title">
+                      <label class="mdl-textfield__label" for="title">Title..</label>
+                    </div><br>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="location">
+                      <label class="mdl-textfield__label" for="location">Add location...</label>
+                    </div><br>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="note">
+                      <label class="mdl-textfield__label" for="note">Add note..</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Design second tab-->
+
+        <div class="mdl-layout__tab-panel" id="step2">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--red-200"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>What's are the options?</h5>
+                  <form action="#"><br>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="theDate">
+                      <label class="mdl-textfield__label" for="theDate">The date : dd/mm/yy..</label>
+                    </div><br>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="theTime">
+                      <label class="mdl-textfield__label" for="theTime">The time : hh:mm.....</label>
+                    </div><br>
+
+                    <!-- competances -->
+
+
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" id="competancess">
+                      <thead>
+                        <tr>
+                         <th class="mdl-data-table__cell--non-numeric">Requiered Competances</th>
+                         <th>Requierd Number</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric"><h5>Arabic speaker</h5></td>
+                          <td><div class="mdl-textfield mdl-js-textfield" >
+                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="ArNumber">
+                                <span class="mdl-textfield__error">Input is not a number!</span>
+                              </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric"><h5>Farsi speaker</h5></td>
+                          <td><div class="mdl-textfield mdl-js-textfield" >
+                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="FaNumber">
+                                <span class="mdl-textfield__error">Input is not a number!</span>
+                              </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric"><h5>English speaker</h5></td>
+                          <td><div class="mdl-textfield mdl-js-textfield" >
+                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="EnNumber">
+                                <span class="mdl-textfield__error">Input is not a number!</span>
+                              </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table><br>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+         <!-- Design third tab-->
+
+        <div class="mdl-layout__tab-panel" id="step3">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--red-300"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                <br><br><h4>Invite participants via link</h4>
+                  <form action="#"><br><br>
+                 <!-- <div>
+                    <button class="mdl-button mdl-js-button mdl-button--raised">
+                      <b>Link</b>
+                    </button>
+                  </div>-->
+                  <div><br><br>Everyone with the link can vote – no account required.
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                      <tbody>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric" id="eventUrl">https://ide50-timaf.cs50.io:8081/TrainOfHope/templates/eventCreation.html</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+
+      <!-- Design the footer -->
+
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">
+            Train Of Hope
+          </div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="first.html">Create event</a></li>
+            <li><a href="#contact">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="mdl-mini-footer__right-section">
+          <button class="mdl-mini-footer__social-btn"></button>
+
+        </div>
+ </footer>
+</body>
+</html>
+
+
+

@@ -1,0 +1,106 @@
+.demo-card-square.mdl-card {
+  width: 420px;
+  height: 320px;
+
+}
+.demo-card-square > .mdl-card__title {
+   background:
+    url('trainOfHope.png') bottom right 15% no-repeat #46B6AC;
+}
+.mdl-demo section.section--center{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width:60%;
+}
+ .mdl-demo main > .mdl-layout__tab-panel {
+   padding: 8px;
+   padding-top: 50px;
+   padding-bottom: 50px;
+}
+  .mdl-demo .mdl-layout__tab-bar {
+   padding: 0;
+   padding-left:50px;
+   box-sizing: border-box;
+   height: 100%;
+   width: 100%;
+}
+.mdl-demo .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
+   background-color: white;
+   height: 4px;
+}
+
+.mdl-card__supporting-text {
+	color:black;
+	padding:25px;
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 25px;
+    overflow: auto;
+}
+.mdl-demo section .section__circle-container > .section__circle-container__circle {
+   width: 300px;
+   height: 300px;
+   border-radius: 140px;
+   margin:65px;
+   flex-shrink: 10;
+}
+.mdl-button {
+    color:black;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-weight:400;
+    margin-left:60px;
+    height:50;
+}
+.demo-list-icon {
+  width: 400px;
+}
+.mdl-list__item--three-line .mdl-list__item-primary-content {
+   line-height: 25px;
+   color:black;
+}
+.mdl-data-table {
+    background-color:rgba(158,158,158,0.2);
+}
+
+
+.mdl-list__item {
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .04em;
+    line-height: 1;
+    min-height: 48px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    cursor: default;
+    color: rgba(0,0,0,.87);
+    overflow: visible;
+}
+
+.mdl-layout__header-row {
+    height:30px;
+}
+
+.mdl-textfield__input {
+    font-size:20px;
+}
+
+.mdl-textfield__label {
+    color:rgb(0,150,136);
+}
+.mdl-checkbox__label {
+    position:absolute;
+    display:inline-block;
+}
+.mdl-textfield {
+    width:50%;
+}
+
+.mdl-data-table td {
+    padding:0px 0px;
+}
+.mdl-data-table th {
+    color:rgb(0,150,136);
+}
