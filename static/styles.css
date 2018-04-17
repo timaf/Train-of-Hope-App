@@ -1,5 +1,5 @@
 .demo-card-square.mdl-card {
-  width: 420px;
+  width: 430px;
   height: 320px;
 
 }
@@ -33,7 +33,7 @@
 .mdl-card__supporting-text {
 	color:black;
 	padding:25px;
-    width: 100%;
+    width: 90%;
     font-size: 1.5rem;
     line-height: 25px;
     overflow: auto;
@@ -46,38 +46,17 @@
    flex-shrink: 10;
 }
 .mdl-button {
-    color:black;
+    color:rgb(0,150,136);
     font-family: 'Roboto', 'Helvetica', sans-serif;
     font-weight:400;
-    margin-left:60px;
+    margin-left:40px;
     height:50;
 }
-.demo-list-icon {
-  width: 400px;
-}
-.mdl-list__item--three-line .mdl-list__item-primary-content {
-   line-height: 25px;
-   color:black;
-}
+
 .mdl-data-table {
     background-color:rgba(158,158,158,0.2);
 }
 
-
-.mdl-list__item {
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: .04em;
-    line-height: 1;
-    min-height: 48px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 10px;
-    cursor: default;
-    color: rgba(0,0,0,.87);
-    overflow: visible;
-}
 
 .mdl-layout__header-row {
     height:30px;
@@ -90,17 +69,22 @@
 .mdl-textfield__label {
     color:rgb(0,150,136);
 }
-.mdl-checkbox__label {
-    position:absolute;
-    display:inline-block;
-}
+
 .mdl-textfield {
-    width:50%;
+    width:70%;
 }
 
-.mdl-data-table td {
-    padding:0px 0px;
-}
-.mdl-data-table th {
+#right {
     color:rgb(0,150,136);
+    margin:16px 0 24px;
+}
+.material-icons {
+    vertical-align:-5px;
+}
+
+
+#competance {
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:5px;
 }

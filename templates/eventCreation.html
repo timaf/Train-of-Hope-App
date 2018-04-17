@@ -30,6 +30,7 @@
 
 		<!-- http://jquery.com/ -->
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <!-- app's own JavaScript -->
     <script src="/static/scripts.js"></script>
@@ -69,7 +70,7 @@
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                   <h5>What's the occasion?</h5>
-                  <form action="#"><br>
+                  <form action="#">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                       <input class="mdl-textfield__input" type="text" id="title">
                       <label class="mdl-textfield__label" for="title">Title..</label>
@@ -81,8 +82,13 @@
                     </div><br>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="note">
-                      <label class="mdl-textfield__label" for="note">Add note..</label>
+                      <input class="mdl-textfield__input" type="text" id="discription">
+                      <label class="mdl-textfield__label" for="discription">Add discription..</label>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="date">
+                      <label class="mdl-textfield__label" for="date">Add date..</label>
                     </div>
                   </form>
                 </div>
@@ -98,58 +104,59 @@
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
                 <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--red-200"></div>
+                  <div class="section__circle-container__circle mdl-color--red-100"></div>
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5>What's are the options?</h5>
+                  <h5>Which people you need?</h5>
                   <form action="#"><br>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="theDate">
-                      <label class="mdl-textfield__label" for="theDate">The date : dd/mm/yy..</label>
-                    </div><br>
-
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="theTime">
-                      <label class="mdl-textfield__label" for="theTime">The time : hh:mm.....</label>
-                    </div><br>
-
                     <!-- competances -->
-
-
-                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" id="competancess">
-                      <thead>
-                        <tr>
-                         <th class="mdl-data-table__cell--non-numeric">Requiered Competances</th>
-                         <th>Requierd Number</th>
-                        </tr>
-                      </thead>
+                    <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="competancesTable">
                       <tbody>
                         <tr>
-                          <td class="mdl-data-table__cell--non-numeric"><h5>Arabic speaker</h5></td>
-                          <td><div class="mdl-textfield mdl-js-textfield" >
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="ArNumber">
-                                <span class="mdl-textfield__error">Input is not a number!</span>
-                              </div>
+                          <td class="mdl-data-table__cell--non-numeric" id="competance">
+                            <!-- text fields -->
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" id="date">
+                            </div>
+
+                            <!--button for increasing competances -->
+                            <button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab ">
+                              <i class="material-icons">add</i>
+                            </button>
                           </td>
                         </tr>
                         <tr>
-                          <td class="mdl-data-table__cell--non-numeric"><h5>Farsi speaker</h5></td>
-                          <td><div class="mdl-textfield mdl-js-textfield" >
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="FaNumber">
-                                <span class="mdl-textfield__error">Input is not a number!</span>
-                              </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="mdl-data-table__cell--non-numeric"><h5>English speaker</h5></td>
-                          <td><div class="mdl-textfield mdl-js-textfield" >
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="EnNumber">
-                                <span class="mdl-textfield__error">Input is not a number!</span>
-                              </div>
+                          <td class="mdl-data-table__cell--non-numeric" id="competance">
+                            <!-- text fields -->
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" id="date">
+                            </div>
+
+                            <!--button for increasing competances -->
+
+                            <button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab ">
+                              <i class="material-icons">add</i>
+                            </button>
                           </td>
                         </tr>
                       </tbody>
-                    </table><br>
+                    </table>
+
+                  <!--button for decreasing competances -->
+                  <p>
+                  <button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab">
+                    <i class="material-icons">remove</i>
+                  </button>
+                  </p>
+                  <script type="text/javascript">
+                      $('#myTable').on('click', 'input[type="button"]', function () {
+                          $(this).closest('tr').remove();
+                      })
+                      $('p input[type="button"]').click(function () {
+                          $('#myTable').append('<tr><td><input type="text" class="fname" /></td><td><input type="button" value="Delete" /></td></tr>')
+                      });
+    </script>
+
                   </form>
                 </div>
               </div>
@@ -164,21 +171,26 @@
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
                 <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--red-300"></div>
+                  <div class="section__circle-container__circle mdl-color--red-100"></div>
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                <br><br><h4>Invite participants via link</h4>
+                <br><br><h4>Invite participants via link..</h4>
                   <form action="#"><br><br>
                  <!-- <div>
                     <button class="mdl-button mdl-js-button mdl-button--raised">
                       <b>Link</b>
                     </button>
                   </div>-->
-                  <div><br><br>Everyone with the link can vote – no account required.
+                  <div><br>Everyone with the link can vote – no account required.
                     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                       <tbody>
                         <tr>
-                          <td class="mdl-data-table__cell--non-numeric" id="eventUrl">https://ide50-timaf.cs50.io:8081/TrainOfHope/templates/eventCreation.html</td>
+                          <td class="mdl-data-table__cell--non-numeric" id="eventUrl"><h6 id="right">
+                            <i class="material-icons">link</i>
+                            <script type="text/javascript">
+                              document.write(location.href);
+                            </script></h6>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
