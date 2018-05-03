@@ -49,7 +49,42 @@
 
       <main class="mdl-layout__content">
 
-        <!-- Design the first tab -->
+        <!-- degsin the link -->
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--red-100"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                <br><br><br><h4>Invite participants via link..</h4>
+                  <form action="#">
+                 <!-- <div>
+                    <button class="mdl-button mdl-js-button mdl-button--raised">
+                      <b>Link</b>
+                    </button>
+                  </div>-->
+                  <div><br>Everyone with the link can vote – no account required.
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                      <tbody>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric" id="eventUrl"><h6 id="right">
+                            <i class="material-icons">link</i>
+                            <script type="text/javascript">
+                              document.write(location.href);
+                            </script></h6>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Design the the vote erea -->
 
         <div class="mdl-layout__tab-panel is-active" id="eventVote">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
@@ -61,39 +96,41 @@
                   <div class="section__circle-container__circle mdl-color--grey-300"></div>
                 </div>
 
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5>Event details</h5>
-                  <form action="vote"><br>
+                  <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                    <h5>{{Event_Title}}</h5>
+                    <form action="vote"><br/>
 
-                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
-  <thead>
-    <tr>
-      <th class="mdl-data-table__cell--non-numeric">Material</th>
-      <th>Quantity</th>
-      <th>Unit price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
-      <td>250</td>
-      <td>$2.90</td>
-    </tr>
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
-      <td>50</td>
-      <td>$1.25</td>
-    </tr>
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
-      <td>10</td>
-      <td>$12.35</td>
-    </tr>
-  </tbody>
-</table>
-
-                </form>
-                </div>
+                      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+                        <thead>
+                          <tr>
+                            <th class="mdl-data-table__cell--non-numeric">Location</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="mdl-data-table__cell--non-numeric">{{event_location}}</td>
+                              <td>{{event_description}}</td>
+                              <td>{{event_date}}</td>
+                          </tr>
+                          <tr>
+                            <td class="mdl-data-table__cell--non-numeric" colspan="3"><h4>Needed Competances</h4></td>
+                          </tr>
+                          {% for skill in competances %}
+                          <tr>
+                            <td class="mdl-data-table__cell--non-numeric" colspan="2">{{needed_skill}}</td>
+                            <td>
+                              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
+                                <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
+                              </label>
+                            </td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
               </div>
             </div>
           </section>

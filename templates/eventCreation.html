@@ -33,7 +33,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <!-- app's own JavaScript -->
-    <script src="/static/scripts.js"></script>
+  <!--  <script src="/static/scripts.js"></script>  -->
 
 		<link  type="text/css" rel="stylesheet" href="../static/styles.css">
 </head>
@@ -51,16 +51,15 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-          <a href="#step1" class="mdl-layout__tab is-active"> Step 1 of 3</a>
-          <a href="#step2" class="mdl-layout__tab">Step 2 of 3</a>
-          <a href="#step3" class="mdl-layout__tab">Step 3 of 3</a>
+          <a href="#step1" class="mdl-layout__tab is-active"> Step 1 of 2</a>
+          <a href="#step2" class="mdl-layout__tab">Step 2 of 2</a>
         </div>
       </header>
 
       <main class="mdl-layout__content">
 
         <!-- Design first tab-->
-
+      <form action="/" method="post">
         <div class="mdl-layout__tab-panel is-active" id="step1">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
@@ -108,7 +107,7 @@
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                   <h5>Which people you need?</h5><br>
-                  <form action="#">
+                  <form action="#1">
                     <!-- competances -->
                     <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="competancesTable"><br>
                       <tbody>
@@ -117,7 +116,7 @@
                           <td class="mdl-data-table__cell--non-numeric" >
                             <!-- text fields -->
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                              <input class="mdl-textfield__input" type="text"  name="skill" id="comp">
+                              <input class="mdl-textfield__input" type="text"  name="skill0" id="comp0">
                             </div>
 
                             <!--button for decreasing competances -->
@@ -126,7 +125,6 @@
                             </button>
                           </td>
                         </tr>
-
 
                       </tbody>
                     </table><br>
@@ -138,15 +136,21 @@
                       </button>
                     </p>
                     <script type="text/javascript">
-                      var count = 1;
+                      var count=1;
                       $('#competancesTable').on('click', 'button', function () {
                           $(this).closest('tr').remove();
-                      });
+                      })
                       $('p button').click(function () {
-                          $('#competancesTable').append('<tr><td class="mdl-data-table__cell--non-numeric"><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="text" name="skill'+ count +'" id="comp' + count + '"></div><button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab "><i class="material-icons">remove</i></button></td></tr>')
-                          count += 1;
+                          $('#competancesTable').append('<tr><td class="mdl-data-table__cell--non-numeric" ><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="text" id="skill3"></div><button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab "><i class="material-icons">remove</i></button></td></tr>');
+                          count+=1;
+
                       });
                     </script>
+                    <div>
+                      <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
+                        <b>finished</b>
+                      </button>
+                    </div>
 
                   </form>
                 </div>
@@ -155,44 +159,7 @@
           </section>
         </div>
 
-         <!-- Design third tab-->
-
-        <div class="mdl-layout__tab-panel" id="step3">
-          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--red-100"></div>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                <br><br><br><h4>Invite participants via link..</h4>
-                  <form action="#">
-                 <!-- <div>
-                    <button class="mdl-button mdl-js-button mdl-button--raised">
-                      <b>Link</b>
-                    </button>
-                  </div>-->
-                  <div><br>Everyone with the link can vote – no account required.
-                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-                      <tbody>
-                        <tr>
-                          <td class="mdl-data-table__cell--non-numeric" id="eventUrl"><h6 id="right">
-                            <i class="material-icons">link</i>
-                            <script type="text/javascript">
-                              document.write(location.href);
-                            </script></h6>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
+      </main>
 
 
       <!-- Design the footer -->
