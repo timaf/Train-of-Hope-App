@@ -59,7 +59,7 @@
       <main class="mdl-layout__content">
 
         <!-- Design first tab-->
-      <form action="/" method="post">
+      <!--<form action="/" method="post">-->
         <div class="mdl-layout__tab-panel is-active" id="step1">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
@@ -71,22 +71,22 @@
                   <h5>What's the occasion?</h5>
                   <form action="#">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="title">
+                      <input class="mdl-textfield__input" type="text" id="title" name="title">
                       <label class="mdl-textfield__label" for="title">Title..</label>
                     </div><br>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="location">
+                      <input class="mdl-textfield__input" type="text" id="location" name="location">
                       <label class="mdl-textfield__label" for="location">Add location...</label>
                     </div><br>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="discription">
-                      <label class="mdl-textfield__label" for="discription">Add discription..</label>
+                      <input class="mdl-textfield__input" type="text" id="description" name="description">
+                      <label class="mdl-textfield__label" for="discription">Add description..</label>
                     </div>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="date">
+                      <input class="mdl-textfield__input" type="text" id="date" name="date">
                       <label class="mdl-textfield__label" for="date">Add date..</label>
                     </div>
                   </form>
@@ -125,6 +125,19 @@
                             </button>
                           </td>
                         </tr>
+                        <tr>
+                          <td class="mdl-data-table__cell--non-numeric" >
+                            <!-- text fields -->
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text"  name="skill1" id="comp0">
+                            </div>
+
+                            <!--button for decreasing competances -->
+                            <button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab ">
+                              <i class="material-icons">remove</i>
+                            </button>
+                          </td>
+                        </tr>
 
                       </tbody>
                     </table><br>
@@ -136,7 +149,7 @@
                       </button>
                     </p>
                     <script type="text/javascript">
-                      var count=1;
+                      var count=2;
                       $('#competancesTable').on('click', 'button', function () {
                           $(this).closest('tr').remove();
                       })
