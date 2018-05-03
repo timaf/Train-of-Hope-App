@@ -112,39 +112,35 @@
                     <!-- competances -->
                     <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="competancesTable"><br>
                       <tbody>
-
                         <tr>
-                          <td class="mdl-data-table__cell--non-numeric" >
+                          <td class="mdl-data-table__cell--non-numeric" id="competance">
                             <!-- text fields -->
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                              <input class="mdl-textfield__input" type="text"  name="skill" id="comp">
+                              <input class="mdl-textfield__input" type="text" id="skill1">
                             </div>
 
-                            <!--button for decreasing competances -->
+                            <!--button for increasing competances -->
                             <button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab ">
                               <i class="material-icons">remove</i>
                             </button>
                           </td>
                         </tr>
 
-
                       </tbody>
                     </table><br>
 
-                    <!--button for increasing competances -->
+                    <!--button for decreasing competances -->
                     <p>
                       <button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab">
                         <i class="material-icons">add</i>
                       </button>
                     </p>
                     <script type="text/javascript">
-                      var count = 1;
                       $('#competancesTable').on('click', 'button', function () {
                           $(this).closest('tr').remove();
-                      });
+                      })
                       $('p button').click(function () {
-                          $('#competancesTable').append('<tr><td class="mdl-data-table__cell--non-numeric"><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="text" name="skill'+ count +'" id="comp' + count + '"></div><button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab "><i class="material-icons">remove</i></button></td></tr>')
-                          count += 1;
+                          $('#competancesTable').append('<tr><td class="mdl-data-table__cell--non-numeric" ><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="text" id="skill3"></div><button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab "><i class="material-icons">remove</i></button></td></tr>')
                       });
                     </script>
 
@@ -166,7 +162,7 @@
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                 <br><br><br><h4>Invite participants via link..</h4>
-                  <form action="#">
+                  <form action="#"><br>
                  <!-- <div>
                     <button class="mdl-button mdl-js-button mdl-button--raised">
                       <b>Link</b>
