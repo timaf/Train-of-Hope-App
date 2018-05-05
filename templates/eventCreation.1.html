@@ -56,22 +56,13 @@
         </div>
       </header>
 
-      <hr/>
-
-      {%- for category, message in get_flashed_messages(with_categories = true) %}
-         <div class = "alert alert-danger" style="color:red">
-            {{ message }}
-         </div>
-      {%- endfor %}
-
-
       <main class="mdl-layout__content">
 
         <!-- Design first tab-->
 
         <div class="mdl-layout__tab-panel is-active" id="step1">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-           <!-- <form action = "{{ request.path }}" method = "post">-->
+            <form action = "{{ request.path }}" method = "post">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing"><br/>
                 <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
@@ -81,27 +72,27 @@
                   <h5>What's the occasion?</h5>
                   <form>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input form="create" class="mdl-textfield__input" type="text" id="title" name="title">
+                      <input class="mdl-textfield__input" type="text" id="title" name="title">
                       <label class="mdl-textfield__label" for="title">Title..</label>
                     </div>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input form="create" class="mdl-textfield__input" type="text" id="location" name="location">
+                      <input class="mdl-textfield__input" type="text" id="location" name="location">
                       <label class="mdl-textfield__label" for="location">Add location..</label>
                     </div>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input form="create" class="mdl-textfield__input" type="text" id="description" name="description">
-                      <label class="mdl-textfield__label" for="description">Add description..</label>
+                      <input class="mdl-textfield__input" type="text" id="description" name="description">
+                      <label class="mdl-textfield__label" for="discription">Add description..</label>
                     </div>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input form="create" class="mdl-textfield__input" type="text" id="date" name="date">
+                      <input class="mdl-textfield__input" type="text" id="date" name="date">
                       <label class="mdl-textfield__label" for="date">Add date : dd/mm/yy..</label>
                     </div>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input form="create" class="mdl-textfield__input" type="text" id="time" name="time">
+                      <input class="mdl-textfield__input" type="text" id="time" name="time">
                       <label class="mdl-textfield__label" for="time">Add time..</label>
                     </div>
                   </form>
@@ -122,16 +113,16 @@
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                   <h5>Which people you need?</h5><br>
-                  <form action = "{{ request.path }}" method = "post" id="create">
+                  <form>
                     <!-- competances -->
-                    <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="competancesTable"><br/>
+                    <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="competancesTable">
                       <tbody>
 
                         <tr>
                           <td class="mdl-data-table__cell--non-numeric" >
                             <!-- text fields -->
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                              <input class="mdl-textfield__input" type="text"  name="skill0">
+                              <input class="mdl-textfield__input" type="text"  name="skill0" id="comp0">
                             </div>
 
                             <!--button for decreasing competances -->
@@ -169,7 +160,8 @@
                           $(this).closest('tr').remove();
                       })
                       $('p button').click(function () {
-                          $('#competancesTable').append('<tr><td class="mdl-data-table__cell--non-numeric"><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="text"  name="skill'+count+'" ></div><button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab "><i class="material-icons">remove</i></button></td></tr>')
+
+                          $('#competancesTable').append('<tr><td class="mdl-data-table__cell--non-numeric"><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="text"  name="skill'+count+'" id="comp'+count+'"></div><button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab "><i class="material-icons">remove</i></button></td></tr>');
                           count+=1;
                       });
                     </script>
@@ -179,6 +171,7 @@
                         <b>finished</b>
                       </button>
                     </div>
+
                   </form>
                 </div>
               </div>
@@ -186,7 +179,8 @@
           </section>
         </div>
 
-    </main>
+        </form>
+      </main>
 
 
 
@@ -198,7 +192,7 @@
             Train Of Hope
           </div>
           <ul class="mdl-mini-footer__link-list">
-            <li><a href="{{ url_for('show_all') }}">Events overview</a></li>
+            <li><a href="nina.html">Events overview</a></li>
           </ul>
         </div>
         <div class="mdl-mini-footer__right-section">

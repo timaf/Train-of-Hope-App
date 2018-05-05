@@ -25,8 +25,10 @@
 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+		<!--<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.yellow-orange.min.css" />-->
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-indigo.min.css" />
 		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+		<!--<link rel="shortcut icon" href="images/favicon.png"> -->
 		<link  type="text/css" rel="stylesheet" href="../static/styles.css">
 </head>
 
@@ -44,10 +46,15 @@
         </div>
 
       </header>
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
 
       <main class="mdl-layout__content">
 
-
+        {% if events %}
         {% for event in events %}
         <div class="mdl-layout__tab-panel is-active">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
@@ -101,14 +108,14 @@
           </section>
         </div>
         {% endfor %}
-
+        {% endif %}
 
       <!-- Design the footer -->
 
       <footer class="mdl-mini-footer">
         <div class="mdl-mini-footer__left-section">
           <div class="mdl-logo">
-            Train of hope
+            Train Of Hope
           </div>
           <ul class="mdl-mini-footer__link-list">
             <li><a href="{{ url_for('eventCreation') }}">Create event</a></li>

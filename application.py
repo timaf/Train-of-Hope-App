@@ -20,23 +20,35 @@ def after_request(response):
     return response
 
 
-from TrainOfHope.models import Event, Competences
+from TrainOfHope.models import Event, Competence
 with app.app_context():
     db.create_all()
 
 
 @app.route("/")
-def index():
+def show_all():
 
-        # Query database for the updated events
-        events = Event.query.all()
+    # Query database for the updated events and competences
+    events = Event.query.all()
+    db.session.commit()
+    return render_template("nina.html", events=events)
 
-        # Query database for the competences
-        #skills = Competences.query.filter_by(events_id == Event.id)
-
-        return render_template("nina.html", events=events, skills=skills)
-
-
+@app.route('/eventCreation', methods = ['GET', 'POST'])
+def eventCreation():
+    if request.method == 'POST':
+        if not request.form['title'] or not request.form['location'] or not request.form['description'] or not request.form['date'] or not request.form['time']:
+            flash('Please enter all the fields', 'error')
+        else:
+            # Update events table
+            event = Event(request.form['title'], request.form['location'],
+            request.form['description'], request.form['date'], request.form['time'])
+            db.session.add(event)
+            db.session.commit()
+            d=Competence(request.form['skill0'], event.id)
+            db.session.add(d)
+            db.session.commit()
+            return redirect(url_for('show_all'))
+    return render_template('eventCreation.html')
 
 
 
