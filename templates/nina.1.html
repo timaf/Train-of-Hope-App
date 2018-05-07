@@ -25,10 +25,8 @@
 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-		<!--<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.yellow-orange.min.css" />-->
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-indigo.min.css" />
 		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-		<!--<link rel="shortcut icon" href="images/favicon.png"> -->
 		<link  type="text/css" rel="stylesheet" href="../static/styles.css">
 </head>
 
@@ -46,15 +44,10 @@
         </div>
 
       </header>
-      <hr/>
-      {%- for message in get_flashed_messages() %}
-         {{ message }}
-      {%- endfor %}
-
 
       <main class="mdl-layout__content">
 
-        {% if events %}
+
         {% for event in events %}
         <div class="mdl-layout__tab-panel is-active">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
@@ -64,27 +57,27 @@
 
                 <!-- Grey circle -->
                 <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--grey-200"></div>
+                  <div class="section__circle-container__circle mdl-color--grey-300"></div>
                 </div>
 
                 <!-- Event details -->
                   <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                     <h3>{{ event.title}}</h3>
-                    <h6>Location : {{ event.location}}</h6>
-                    <h6>Description : {{ event.description}}</h6>
-                    <h6>Date : {{ event.date }}</h6>
-                    <h6>Time : {{ event.needed_skill }}</h6>
+                    <h5>Location : {{ event.location}}</h5>
+                    <h5>Description : {{ event.description}}</h5>
+                    <h5>Date and Time : {{ event.date }} - {{ event.time }} O'clock</h5>
+
                     <!-- yellow circle -->
                     <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                      <div class="section__circle-container__circle mdl-color--amber-100">
+                      <div class="section__circle-container__circle mdl-color--amber-200">
 
                         <ul class="demo-list-two mdl-list">
                           {% for skill in event.competence %}
                           <li class="mdl-list__item mdl-list__item--two-line">
                             <span class="mdl-list__item-primary-content">
                               <i class="material-icons mdl-list__item-icon">directions_walk</i>
-                                <span class="mdl-list__item-sub-title">
-                                  {{skill.needed_skill}}
+                                <span class="mdl-list__item-sub-title" id="needed">
+                                   {{skill.needed_skill}}
                                 </span>
                             </span>
                           </li>
@@ -108,14 +101,14 @@
           </section>
         </div>
         {% endfor %}
-        {% endif %}
+
 
       <!-- Design the footer -->
 
       <footer class="mdl-mini-footer">
         <div class="mdl-mini-footer__left-section">
           <div class="mdl-logo">
-            Train Of Hope
+            Train of hope
           </div>
           <ul class="mdl-mini-footer__link-list">
             <li><a href="{{ url_for('eventCreation') }}">Create event</a></li>

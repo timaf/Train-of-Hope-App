@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, url_for, render_template, request,jsonify, session
 from werkzeug.exceptions import default_exceptions
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
@@ -44,8 +44,9 @@ def eventCreation():
             request.form['description'], request.form['date'], request.form['time'])
             db.session.add(event)
             db.session.commit()
-            d=Competence(request.form['skill0'], event.id)
-            db.session.add(d)
+
+            skill = Competence(request.form['skill0'], event.id)
+            db.session.add(skill)
             db.session.commit()
             return redirect(url_for('show_all'))
     return render_template('eventCreation.html')

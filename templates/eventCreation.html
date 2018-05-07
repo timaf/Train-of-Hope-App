@@ -122,11 +122,11 @@
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                   <h5>Which people you need?</h5><br>
+
                   <form action = "{{ request.path }}" method = "post" id="create">
                     <!-- competances -->
                     <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="competancesTable"><br/>
                       <tbody>
-
                         <tr>
                           <td class="mdl-data-table__cell--non-numeric" >
                             <!-- text fields -->
@@ -135,57 +135,48 @@
                             </div>
 
                             <!--button for decreasing competances -->
-                            <button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab ">
+                            <button type="button" class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab ">
                               <i class="material-icons">remove</i>
                             </button>
                           </td>
                         </tr>
-                        <tr>
-                          <td class="mdl-data-table__cell--non-numeric" >
-                            <!-- text fields -->
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                              <input class="mdl-textfield__input" type="text"  name="skill1" >
-                            </div>
-
-                            <!--button for decreasing competances -->
-                            <button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab ">
-                              <i class="material-icons">remove</i>
-                            </button>
-                          </td>
-                        </tr>
-
                       </tbody>
                     </table><br>
 
                     <!--button for increasing competances -->
-                    <p>
-                      <button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab">
-                        <i class="material-icons">add</i>
-                      </button>
-                    </p>
+                    <button  type="button" class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab" id="insert_row">
+                      <i class="material-icons">add</i>
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
+                        <b>finished</b>
+                    </button><br>
                     <script type="text/javascript">
-                      var count=2;
+                      var count=0;
                       $('#competancesTable').on('click', 'button', function () {
                           $(this).closest('tr').remove();
                       })
-                      $('p button').click(function () {
-                          $('#competancesTable').append('<tr><td class="mdl-data-table__cell--non-numeric"><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="text"  name="skill'+count+'" ></div><button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab "><i class="material-icons">remove</i></button></td></tr>')
+                      $('#insert_row').click(function () {
                           count+=1;
+                          $('#competancesTable').append('<tr><td class="mdl-data-table__cell--non-numeric"><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="text"  name="skill'+count+'" ></div><button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab "><i class="material-icons">remove</i></button></td></tr>')
+
+                      });
+                      var url = '/eventCreation';
+                      $.ajax({
+                      url: url,
+                      type: 'POST',
+                      data: {'variable_name': count },
+                      success: function(html)
+                      {
+                      alert('ok');
+                      },
                       });
                     </script>
-
-                    <div>
-                      <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
-                        <b>finished</b>
-                      </button>
-                    </div>
                   </form>
                 </div>
               </div>
             </div>
           </section>
         </div>
-
     </main>
 
 
