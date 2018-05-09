@@ -32,8 +32,8 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-
 		<link  type="text/css" rel="stylesheet" href="../static/styles.css">
+
 </head>
 
 <!-- Design the navigation bar -->
@@ -164,14 +164,14 @@
           <div class="mdl-logo">
             Train Of Hope
           </div>
-          <ul class="mdl-mini-footer__link-list">
+          <ul class="mdl-logo">
             <li><a href="{{ url_for('show_all') }}">Events overview</a></li>
+            <li><a href="{{ url_for('eventVoting') }}">Vote event</a></li>
           </ul>
         </div>
       </footer>
   </body>
-
-  <script type="text/javascript">
+   <script type="text/javascript">
 
       $('#competancesTable').on('click', 'button', function () {
           $(this).closest('tr').remove();
@@ -181,7 +181,8 @@
           $('#competancesTable').append('<tr><td class="mdl-data-table__cell--non-numeric"><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="text"  name="skill" ></div><button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab "><i class="material-icons">remove</i></button></td></tr>');
       });
 
-  </script>
+    </script>
+
 
 </html>
 

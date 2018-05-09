@@ -69,13 +69,14 @@ def eventCreation():
 def eventVoting():
     if request.method == 'GET':
 
-        # Select specific event to vote
-        my_event = Event.query.filter(Event.id == session["my_event_id"]).first()
-        if not my_event:
+        if "my_event_id" not in session:
             flash('Please create an event first', 'error')
             return redirect(url_for('eventCreation'))
-        db.session.commit()
-        return render_template("volunteer.html", my_event=my_event)
+        else:
+        # Select specific event to vote
+            my_event = Event.query.filter(Event.id == session["my_event_id"]).first()
+            db.session.commit()
+            return render_template("volunteer.html", my_event=my_event)
 
 
 
