@@ -58,13 +58,8 @@
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                 <br><br><br><h4>Invite participants via link..</h4>
-                  <form action="/vote">
-                 <!-- <div>
-                    <button class="mdl-button mdl-js-button mdl-button--raised">
-                      <b>Link</b>
-                    </button>
-                  </div>-->
-                  <div><br>Everyone with the link can vote – no account required.
+                  <form >
+                   <div><br>Everyone with the link can vote – no account required.
                     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                       <tbody>
                         <tr>
@@ -97,32 +92,32 @@
                 </div>
 
                   <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                    <h5>{{Event_Title}}</h5>
-                    <form action="{{ request.path }}" method = "post" id="voting"><br/>
+                    <h5>Title :{{ my_event.title }}</h5>
+                    <form action="{{ request.path }}" method = "post" id="voting"><br/><br/>
 
                       <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
                         <thead>
                           <tr>
                             <th class="mdl-data-table__cell--non-numeric">Location</th>
                             <th>Description</th>
-                            <th>Date</th>
+                            <th>Date and Time</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td class="mdl-data-table__cell--non-numeric">{{event_location}}</td>
-                              <td>{{event_description}}</td>
-                              <td>{{event_date}}</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{ my_event.location }}</td>
+                              <td>{{ my_event.description }}</td>
+                              <td>{{ my_event.date }} - {{ my_event.time }} O'clock</td>
                           </tr>
                           <tr>
                             <td class="mdl-data-table__cell--non-numeric" colspan="3"><h4>Needed Competances</h4></td>
                           </tr>
-                          {% for skill in competances %}
+                          {% for skill in my_event.competence %}
                           <tr>
-                            <td class="mdl-data-table__cell--non-numeric" colspan="2">{{needed_skill}}</td>
+                            <td class="mdl-data-table__cell--non-numeric" colspan="2">{{skill.needed_skill}}</td>
                             <td>
                               <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
-                                <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" checked />
+                                <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" />
                               </label>
                             </td>
                           </tr>
@@ -145,16 +140,12 @@
           <div class="mdl-logo">
             Train Of Hope
           </div>
-          <ul class="mdl-mini-footer__link-list">
-            <li><a href="44444#">Create event</a></li>
+          <ul class="mdl-logo">
+            <li><a href="{{ url_for('show_all') }}">Events overview</a></li>
             <li><a href="#contact">Contact us</a></li>
           </ul>
         </div>
-        <div class="mdl-mini-footer__right-section">
-          <button class="mdl-mini-footer__social-btn"></button>
-
-        </div>
-</footer>
+      </footer>
 </body>
 </html>
 

@@ -35,7 +35,11 @@ def show_all():
 
 @app.route('/eventCreation', methods = ['GET', 'POST'])
 def eventCreation():
+    # Forget any event_id
+    session.clear()
+
     if request.method == 'POST':
+
         event_detail = request.form
         if not event_detail['title'] or not event_detail['location'] or not event_detail['description'] or not event_detail['date'] or not event_detail['time']:
             flash('Please enter all the fields', 'error')
@@ -47,18 +51,31 @@ def eventCreation():
             db.session.add(event)
             db.session.commit()
 
-
+            # Update competences table
             skills = event_detail.getlist('skill')
             for skill in skills:
                 event_skill = Competence(skill, event.id)
                 db.session.add(event_skill)
                 db.session.commit()
             flash('Event was successfully added')
+
+            # Remember which event
+            session["my_event_id"] = event.id
             return redirect(url_for('show_all'))
 
     return render_template('eventCreation.html')
 
+@app.route('/eventVoting', methods = ['GET', 'POST'])
+def eventVoting():
+    if request.method == 'GET':
 
+        # Select specific event to vote
+        my_event = Event.query.filter(Event.id == session["my_event_id"]).first()
+        if not my_event:
+            flash('Please create an event first', 'error')
+            return redirect(url_for('eventCreation'))
+        db.session.commit()
+        return render_template("volunteer.html", my_event=my_event)
 
 
 

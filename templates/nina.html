@@ -68,7 +68,7 @@
 
                 <!-- Event details -->
                   <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                    <h3>{{ event.title}}</h3>
+                    <h3>Title : {{ event.title }}</h3>
                     <h5>Location : {{ event.location}}</h5>
                     <h5>Description : {{ event.description}}</h5>
                     <h5>Date and Time : {{ event.date }} - {{ event.time }} O'clock</h5>
@@ -103,7 +103,7 @@
                       <li class="mdl-menu__item">{ farsi }</li>
                     </ul>
                   Still needed competances
-                  </form>
+              </form>
           </section>
         </div>
         {% endfor %}
@@ -116,14 +116,12 @@
           <div class="mdl-logo">
             Train of hope
           </div>
-          <ul class="mdl-mini-footer__link-list">
+          <ul class="mdl-logo">
             <li><a href="{{ url_for('eventCreation') }}">Create event</a></li>
+            <li><a href="{{ url_for('eventVoting') }}">Vote event</a></li>
           </ul>
         </div>
-        <div class="mdl-mini-footer__right-section">
-          <button class="mdl-mini-footer__social-btn"><a href="{{ url_for('eventVoting') }}">Event vote </a></button>
-        </div>
-</footer>
+      </footer>
 </body>
 </html>
 
