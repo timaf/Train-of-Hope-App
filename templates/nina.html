@@ -45,6 +45,12 @@
 
       </header>
 
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+
       <main class="mdl-layout__content">
 
 
@@ -115,7 +121,7 @@
           </ul>
         </div>
         <div class="mdl-mini-footer__right-section">
-          <button class="mdl-mini-footer__social-btn"></button>
+          <button class="mdl-mini-footer__social-btn"><a href="{{ url_for('eventVoting') }}">Event vote </a></button>
         </div>
 </footer>
 </body>

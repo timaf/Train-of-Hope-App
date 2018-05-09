@@ -58,7 +58,7 @@
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                 <br><br><br><h4>Invite participants via link..</h4>
-                  <form action="#">
+                  <form action="/vote">
                  <!-- <div>
                     <button class="mdl-button mdl-js-button mdl-button--raised">
                       <b>Link</b>
@@ -98,7 +98,7 @@
 
                   <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                     <h5>{{Event_Title}}</h5>
-                    <form action="vote"><br/>
+                    <form action="{{ request.path }}" method = "post" id="voting"><br/>
 
                       <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
                         <thead>

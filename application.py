@@ -36,19 +36,26 @@ def show_all():
 @app.route('/eventCreation', methods = ['GET', 'POST'])
 def eventCreation():
     if request.method == 'POST':
-        if not request.form['title'] or not request.form['location'] or not request.form['description'] or not request.form['date'] or not request.form['time']:
+        event_detail = request.form
+        if not event_detail['title'] or not event_detail['location'] or not event_detail['description'] or not event_detail['date'] or not event_detail['time']:
             flash('Please enter all the fields', 'error')
+
         else:
             # Update events table
-            event = Event(request.form['title'], request.form['location'],
-            request.form['description'], request.form['date'], request.form['time'])
+            event = Event(event_detail['title'], event_detail['location'],
+            event_detail['description'], event_detail['date'], event_detail['time'])
             db.session.add(event)
             db.session.commit()
 
-            skill = Competence(request.form['skill0'], event.id)
-            db.session.add(skill)
-            db.session.commit()
+
+            skills = event_detail.getlist('skill')
+            for skill in skills:
+                event_skill = Competence(skill, event.id)
+                db.session.add(event_skill)
+                db.session.commit()
+            flash('Event was successfully added')
             return redirect(url_for('show_all'))
+
     return render_template('eventCreation.html')
 
 
