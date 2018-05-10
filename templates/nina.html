@@ -45,7 +45,7 @@
 
       </header>
 
-      <hr/>
+
       {%- for message in get_flashed_messages() %}
          {{ message }}
       {%- endfor %}
@@ -114,14 +114,13 @@
       <footer class="mdl-mini-footer">
         <div class="mdl-mini-footer__left-section">
           <div class="mdl-logo">
-            Train of hope
+            Train of hope &emsp;
+              <a href="{{ url_for('event_creation') }}">Create event</a>&emsp;
+              <a href="{{ url_for('event_voting') }}">Vote event</a>
           </div>
-          <ul class="mdl-logo">
-            <li><a href="{{ url_for('eventCreation') }}">Create event</a></li>
-          </ul>
-        </div>
       </footer>
-</body>
+    </main>
+  </body>
 </html>
 
 

@@ -43,9 +43,9 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-
         </div>
       </header>
+
 
       <main class="mdl-layout__content">
 
@@ -123,7 +123,12 @@
                           </tr>
                           {% endfor %}
                         </tbody>
-                      </table>
+                      </table><br>
+
+                      <button class="mdl-button mdl-js-button mdl-button--raised" type="submit" >
+                        <b>submit</b>
+                      </button><br>
+
                     </form>
                   </div>
               </div>
@@ -131,22 +136,34 @@
           </section>
         </div>
 
-
-
       <!-- Design the footer -->
 
       <footer class="mdl-mini-footer">
         <div class="mdl-mini-footer__left-section">
           <div class="mdl-logo">
-            Train Of Hope
+            Train Of Hope &emsp;
+            <a href="{{ url_for('show_all') }}">Events overview</a> &emsp;
+
           </div>
-          <ul class="mdl-logo">
-            <li><a href="{{ url_for('show_all') }}">Events overview</a></li>
-            <li><a href="#contact">Contact us</a></li>
-          </ul>
-        </div>
       </footer>
-</body>
+    </main>
+  </body>
+  <script type="text/javascript">
+
+  $(document).ready(function(){
+
+        $('input[type="checkbox"]').click(function(){
+            if($(this).prop("checked") == true){
+                alert("Checkbox is checked.");
+            }
+            else if($(this).prop("checked") == false){
+
+                alert("Checkbox is unchecked.");
+            }
+        });
+    });
+  </script>
+
 </html>
 
 

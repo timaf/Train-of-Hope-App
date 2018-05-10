@@ -33,8 +33,9 @@ def show_all():
     db.session.commit()
     return render_template("nina.html", events=events)
 
-@app.route('/eventCreation', methods = ['GET', 'POST'])
-def eventCreation():
+@app.route('/event_creation', methods = ['GET', 'POST'])
+def event_creation():
+
     # Forget any event_id
     session.clear()
 
@@ -61,22 +62,29 @@ def eventCreation():
 
             # Remember which event
             session["my_event_id"] = event.id
+
             return redirect(url_for('show_all'))
 
-    return render_template('eventCreation.html')
+    return render_template('event_creation.html')
 
-@app.route('/eventVoting', methods = ['GET', 'POST'])
-def eventVoting():
+@app.route('/event_voting', methods = ['GET', 'POST'])
+def event_voting():
     if request.method == 'GET':
 
         if "my_event_id" not in session:
             flash('Please create an event first', 'error')
-            return redirect(url_for('eventCreation'))
+
         else:
         # Select specific event to vote
             my_event = Event.query.filter(Event.id == session["my_event_id"]).first()
             db.session.commit()
             return render_template("volunteer.html", my_event=my_event)
+        flash('Please create an event first', 'error')
+        return redirect(url_for('event_creation'))
+
+    else :
+        if request.method == 'POST':
+            return redirect(url_for('show_all'))
 
 
 
