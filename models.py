@@ -10,7 +10,7 @@ class Event(db.Model):
     title = db.Column(db.Text,nullable=False)
     location = db.Column(db.Text,nullable=False)
     description = db.Column(db.Text, nullable=True)
-    date = db.Column(db.Text, nullable=True)
+    date = db.Column(db.Date, nullable=True)
     time = db.Column(db.Text, nullable=True)
     competence = db.relationship("Competence", order_by="Competence.id", backref="events")
 

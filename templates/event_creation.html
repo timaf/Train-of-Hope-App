@@ -54,12 +54,19 @@
         </div>
       </header>
 
-      {%- for category, message in get_flashed_messages(with_categories = true) %}
-         <div class = "alert alert-danger" style="color:red">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class = "alert alert-danger" style="color:red">
             {{ message }}
-         </div>
-      {%- endfor %}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
 
+      {% if error %}
+        <p class=error style="color:red"><strong>Error:</strong> {{ error }}
+      {% endif %}
 
       <main class="mdl-layout__content">
 

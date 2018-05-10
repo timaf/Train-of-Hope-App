@@ -3,6 +3,7 @@ from werkzeug.exceptions import default_exceptions
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 from datetime import datetime
+from datetime import date
 from TrainOfHope import create_app, db
 
 # Configure application
@@ -29,9 +30,10 @@ with app.app_context():
 def show_all():
 
     # Query database for the updated events and competences
-    events = Event.query.all()
+    today = date.today()
+    updated_events = Event.query.filter(Event.date >= today).all()
     db.session.commit()
-    return render_template("nina.html", events=events)
+    return render_template("nina.html", events=updated_events)
 
 @app.route('/event_creation', methods = ['GET', 'POST'])
 def event_creation():
@@ -63,24 +65,27 @@ def event_creation():
             # Remember which event
             session["my_event_id"] = event.id
 
-            return redirect(url_for('show_all'))
+            return redirect(url_for('event_voting'))
 
     return render_template('event_creation.html')
 
+
 @app.route('/event_voting', methods = ['GET', 'POST'])
 def event_voting():
+    error = None
+
     if request.method == 'GET':
 
         if "my_event_id" not in session:
-            flash('Please create an event first', 'error')
+            error = "Please create an event first!"
 
         else:
         # Select specific event to vote
             my_event = Event.query.filter(Event.id == session["my_event_id"]).first()
             db.session.commit()
             return render_template("volunteer.html", my_event=my_event)
-        flash('Please create an event first', 'error')
-        return redirect(url_for('event_creation'))
+
+        return render_template('nina.html', error=error)
 
     else :
         if request.method == 'POST':
