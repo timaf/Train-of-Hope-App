@@ -48,9 +48,12 @@ def event_creation():
             flash('Please enter all the fields', 'error')
 
         else:
+            # Validating date column becausse SQLite Date type only accepts Python date objects as input
+            valid_date = datetime.strptime( event_detail['date'], '%d/%m/%Y').date()
+
             # Update events table
             event = Event(event_detail['title'], event_detail['location'],
-            event_detail['description'], event_detail['date'], event_detail['time'])
+            event_detail['description'], valid_date, event_detail['time'])
             db.session.add(event)
             db.session.commit()
 
@@ -72,24 +75,19 @@ def event_creation():
 
 @app.route('/event_voting', methods = ['GET', 'POST'])
 def event_voting():
-    error = None
 
-    if request.method == 'GET':
-
-        if "my_event_id" not in session:
-            error = "Please create an event first!"
-
-        else:
-        # Select specific event to vote
-            my_event = Event.query.filter(Event.id == session["my_event_id"]).first()
-            db.session.commit()
-            return render_template("volunteer.html", my_event=my_event)
-
-        return render_template('nina.html', error=error)
+    if request.method == 'POST':
+            return redirect(url_for('show_all'))
 
     else :
-        if request.method == 'POST':
-            return redirect(url_for('show_all'))
+        # upload the event to vote
+        my_event = Event.query.filter(Event.id == session["my_event_id"]).first()
+        db.session.commit()
+        return render_template("volunteer.html", my_event=my_event)
+
+
+
+
 
 
 

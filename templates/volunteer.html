@@ -38,7 +38,7 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-          <h3>Train Of Hope Events </h3>
+          <h3>Train Of Hope Event </h3>
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
@@ -92,15 +92,16 @@
                 </div>
 
                   <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                    <h5>Title :{{ my_event.title }}</h5>
-                    <form action="{{ request.path }}" method = "post" id="voting"><br/><br/>
+                    <h5>Title :{{ my_event.title }}</h5><br>
 
-                      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+                    <form action="{{ request.path }}" method = "post" id="voting">
+
+                      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"><br>
                         <thead>
                           <tr>
-                            <th class="mdl-data-table__cell--non-numeric">Location</th>
-                            <th>Description</th>
-                            <th>Date and Time</th>
+                            <th class="mdl-data-table__cell--non-numeric"><h6>Location</h6></th>
+                            <th><h6>Description</h6></th>
+                            <th><h6>Date and Time</h6></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -116,8 +117,8 @@
                           <tr>
                             <td class="mdl-data-table__cell--non-numeric" colspan="2">{{skill.needed_skill}}</td>
                             <td>
-                              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="list-checkbox-1">
-                                <input type="checkbox" id="list-checkbox-1" class="mdl-checkbox__input" />
+                              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+                                <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" />
                               </label>
                             </td>
                           </tr>
@@ -127,9 +128,8 @@
 
                       <button class="mdl-button mdl-js-button mdl-button--raised" type="submit" >
                         <b>submit</b>
-                      </button><br>
-
-                    </form>
+                      </button>
+                    </form><br>
                   </div>
               </div>
             </div>
@@ -143,24 +143,23 @@
           <div class="mdl-logo">
             Train Of Hope &emsp;
             <a href="{{ url_for('show_all') }}">Events overview</a> &emsp;
-
           </div>
       </footer>
     </main>
   </body>
-  <script type="text/javascript">
+   <script type="text/javascript">
 
   $(document).ready(function(){
 
-        $('input[type="checkbox"]').click(function(){
-            if($(this).prop("checked") == true){
-                alert("Checkbox is checked.");
-            }
-            else if($(this).prop("checked") == false){
-
-                alert("Checkbox is unchecked.");
-            }
+        var somethingChecked = false;
+        $(".mdl-checkbox").each(function() {
+        if($(this).is(':checked')) {
+          somethingChecked = true;
+        }
         });
+        if(!somethingChecked) {
+        alert("You haven't checked anything yet");
+        }
     });
   </script>
 
