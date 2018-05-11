@@ -38,7 +38,7 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-          <h3>Train Of Hope Doodle </h3>
+          <h3> Welcome to Train Of Hope Doodle </h3>
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
@@ -63,19 +63,19 @@
 
                 <!-- Grey circle -->
                 <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--grey-300"></div>
+                  <div class="section__circle-container__circle mdl-color--grey-250"></div>
                 </div>
 
                 <!-- Event details -->
                   <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                    <h3>Title : {{ event.title }}</h3>
-                    <h5>Location : {{ event.location}}</h5>
-                    <h5>Description : {{ event.description}}</h5>
-                    <h5>Date and Time : {{ event.date }} - {{ event.time }} O'clock</h5>
+                    <h4>Title : {{ event.title }}</h4>
+                    <h6>Location : {{ event.location}}</h6>
+                    <h6>Description : {{ event.description}}</h6>
+                    <h6>Date and Time : {{ event.date }} - {{ event.time }} O'clock</h6>
 
                     <!-- yellow circle -->
                     <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                      <div class="section__circle-container__circle mdl-color--amber-200">
+                      <div class="section__circle-container__circle mdl-color--amber-150">
 
                         <ul class="demo-list-two mdl-list">
                           {% for skill in event.competence %}

@@ -38,7 +38,7 @@
     line-height: 25px;
     overflow: auto;
 }
-.mdl-demo section .section__circle-container > .section__circle-container__circle {
+.mdl-demo section .section__circle-container .section__circle-container__circle {
    width: 300px;
    height: 300px;
    border-radius: 140px;
