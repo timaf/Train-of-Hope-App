@@ -29,11 +29,20 @@ with app.app_context():
 @app.route("/")
 def show_all():
 
-    # Query database for the updated events and competences
+    # Query database for the future events and competences
     today = date.today()
     updated_events = Event.query.filter(Event.date >= today).all()
     db.session.commit()
-    return render_template("nina.html", events=updated_events)
+
+    # Find remaining skills
+    remaining_skills = []
+    for updated_event in updated_events:
+        print(updated_events)
+        print(updated_event.competence)
+        #if updated_event.competence.coming_skill == Null:
+            #remaining_skills.append[updated_event.competence.nedded_skill]
+
+    return render_template("nina.html", events=updated_events, remaining_skills=remaining_skills)
 
 @app.route('/event_creation', methods = ['GET', 'POST'])
 def event_creation():
@@ -60,7 +69,7 @@ def event_creation():
             # Update competences table
             skills = event_detail.getlist('skill')
             for skill in skills:
-                event_skill = Competence(skill, event.id)
+                event_skill = Competence(skill, Null, event.id)
                 db.session.add(event_skill)
                 db.session.commit()
             flash('Event was successfully added')
@@ -77,7 +86,20 @@ def event_creation():
 def event_voting():
 
     if request.method == 'POST':
-            return redirect(url_for('show_all'))
+        coming_competence = request.form
+
+        if coming_competence :
+
+             # Update competences table
+            coming_skills = coming_competence.getlist('coming_skill')
+            the_event_competences = Competence.query.filter(Competence.event_id == session["my_event_id"]).all()
+            for coming_skill in coming_skills:
+                for the_event_competence in the_event_competences:
+                    if coming_skill == the_event_competence.needed_skill:
+                        the_event_competence.coming_skill = coming_skill
+                        db.session.commit()
+
+        return redirect(url_for('show_all'))
 
     else :
         # upload the event to vote

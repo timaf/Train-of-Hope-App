@@ -123,7 +123,7 @@
                             <td class="mdl-data-table__cell--non-numeric" colspan="2">{{skill.needed_skill}}</td>
                             <td>
                               <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox{{loop.index0}}">
-                                <input type="checkbox" id="checkbox{{loop.index0}}" class="mdl-checkbox__input" />
+                                <input type="checkbox" id="checkbox{{loop.index0}}" name="coming_skill" value="{{skill.needed_skill}}" class="mdl-checkbox__input" />
                               </label>
                             </td>
                           </tr>
@@ -147,28 +147,11 @@
         <div class="mdl-mini-footer__left-section">
           <div class="mdl-logo">
             Train Of Hope &emsp;
-            <a href="{{ url_for('show_all') }}">Events overview</a> &emsp;
+            <a href="{{ url_for('show_all') }}">Events overview</a>
           </div>
       </footer>
     </main>
   </body>
-   <script type="text/javascript">
-
-  $(document).ready(function(){
-
-        var somethingChecked = false;
-        $("#ghiath").each(function() {
-        if($(this).is(':checked')) {
-          alert("You haven't checked ");
-          //somethingChecked = true;
-        }
-        });
-        if(!somethingChecked) {
-        alert("You haven't checked anything yet");
-        }
-    });
-  </script>
-
 </html>
 
 

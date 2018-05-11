@@ -23,11 +23,17 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-indigo.min.css" />
 		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+		<!-- http://jquery.com/ -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 		<link  type="text/css" rel="stylesheet" href="../static/styles.css">
+
 </head>
 
 <!-- Design the navigation bar -->
@@ -63,7 +69,7 @@
 
                 <!-- Grey circle -->
                 <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--grey-250"></div>
+                  <div class="section__circle-container__circle mdl-color--grey-200"></div>
                 </div>
 
                 <!-- Event details -->
@@ -75,7 +81,7 @@
 
                     <!-- yellow circle -->
                     <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                      <div class="section__circle-container__circle mdl-color--amber-150">
+                      <div class="section__circle-container__circle mdl-color--amber-100">
 
                         <ul class="demo-list-two mdl-list">
                           {% for skill in event.competence %}
@@ -83,7 +89,7 @@
                             <span class="mdl-list__item-primary-content">
                               <i class="material-icons mdl-list__item-icon">directions_walk</i>
                                 <span class="mdl-list__item-sub-title" id="needed">
-                                   {{skill.needed_skill}}
+                                   {{ skill.coming_skill }}
                                 </span>
                             </span>
                           </li>
@@ -92,18 +98,28 @@
                       </div>
                     </div>
                   </div>
-
-                 <!-- Menu for still needed competances -->
-                  <button id="demo-menu-top-left"  class="mdl-button mdl-js-button mdl-button--icon">
-                    <i class="material-icons">people</i>
-                  </button>
-                    <ul class="mdl-menu mdl-menu--top-left mdl-js-menu mdl-js-ripple-effect"  data-mdl-for="demo-menu-top-left">
-                      <!-- jinja to update-->
-                      <li class="mdl-menu__item">{ENGLISH }</li>
-                      <li class="mdl-menu__item">{ farsi }</li>
-                    </ul>
-                  Still needed competances
               </form>
+
+              <!-- Menu for still needed competances -->
+              <div>
+                <input type="button" id="btn"  value="Remaining competences" class="mdl-button"/>
+              </div>
+              <div>
+                <ul id="rest">
+                    {% for remaining_skill in remaining_skills %}
+                    <li>{{ remaining_skill }}</li>
+                    {% endfor %}
+                </ul>
+              </div>
+
+            <script type="text/javascript">
+              $(document).ready(function () {
+                $("#rest").hide();
+                $("#btn").click(function () {
+                  $("#rest").show();
+                  });
+              });
+            </script>
           </section>
         </div>
         {% endfor %}
@@ -115,7 +131,7 @@
         <div class="mdl-mini-footer__left-section">
           <div class="mdl-logo">
             Train of hope &emsp;
-              <a href="{{ url_for('event_creation') }}">Create event</a>&emsp;
+              <a href="{{ url_for('event_creation') }}">Create event</a>
           </div>
       </footer>
     </main>
