@@ -26,7 +26,7 @@ class Competence(db.Model):
     __tablename__ = "competences"
     id = db.Column(db.Integer, nullable=False, primary_key=True, autoincrement=True)
     needed_skill = db.Column(db.Text, nullable=False)
-    coming_skill = db.Column(db.Text, nullable=False)
+    coming_skill = db.Column(db.Text, nullable=True)
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'),  nullable=False)
 
 

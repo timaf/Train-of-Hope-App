@@ -102,12 +102,14 @@
 
               <!-- Menu for still needed competances -->
               <div>
-                <input type="button" id="btn"  value="Remaining competences" class="mdl-button"/>
+                <input type="button" id="btn{{ loop.index0 }}"  value="Remaining competences" class="mdl-button"/>
               </div>
               <div>
                 <ul id="rest">
-                    {% for remaining_skill in remaining_skills %}
-                    <li>{{ remaining_skill }}</li>
+                    {% for skill in event.competence %}
+                      {% if skill.coming_skill=="No one yet" %}
+                      <li> {{ skill.needed_skill }}</li>
+                      {% endif %}
                     {% endfor %}
                 </ul>
               </div>
@@ -115,7 +117,7 @@
             <script type="text/javascript">
               $(document).ready(function () {
                 $("#rest").hide();
-                $("#btn").click(function () {
+                $("#btn{{ loop.index0 }}").click(function () {
                   $("#rest").show();
                   });
               });

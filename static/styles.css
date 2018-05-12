@@ -3,17 +3,17 @@
   height: 320px;
 
 }
-.demo-card-square > .mdl-card__title {
+.demo-card-square .mdl-card__title {
    background:
     url('trainOfHope.png') bottom right 15% no-repeat #46B6AC;
 }
-.mdl-demo section.section--center{
+.mdl-demo .section--center{
    display: flex;
    align-items: center;
    justify-content: center;
    width:60%;
 }
- .mdl-demo main > .mdl-layout__tab-panel {
+ .mdl-demo .mdl-layout__tab-panel {
    padding: 8px;
    padding-top: 50px;
    padding-bottom: 50px;
@@ -21,7 +21,6 @@
   .mdl-demo .mdl-layout__tab-bar {
    padding: 0;
    padding-left:50px;
-   box-sizing: border-box;
    height: 100%;
    width: 100%;
 }
@@ -64,6 +63,7 @@
 
 .mdl-textfield__input {
     font-size:20px;
+    width:200px;
 }
 
 .mdl-textfield__label {

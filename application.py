@@ -34,15 +34,7 @@ def show_all():
     updated_events = Event.query.filter(Event.date >= today).all()
     db.session.commit()
 
-    # Find remaining skills
-    remaining_skills = []
-    for updated_event in updated_events:
-        print(updated_events)
-        print(updated_event.competence)
-        #if updated_event.competence.coming_skill == Null:
-            #remaining_skills.append[updated_event.competence.nedded_skill]
-
-    return render_template("nina.html", events=updated_events, remaining_skills=remaining_skills)
+    return render_template("nina.html", events=updated_events)
 
 @app.route('/event_creation', methods = ['GET', 'POST'])
 def event_creation():
@@ -69,7 +61,7 @@ def event_creation():
             # Update competences table
             skills = event_detail.getlist('skill')
             for skill in skills:
-                event_skill = Competence(skill, Null, event.id)
+                event_skill = Competence(skill, "No one yet", event.id)
                 db.session.add(event_skill)
                 db.session.commit()
             flash('Event was successfully added')
@@ -93,6 +85,7 @@ def event_voting():
              # Update competences table
             coming_skills = coming_competence.getlist('coming_skill')
             the_event_competences = Competence.query.filter(Competence.event_id == session["my_event_id"]).all()
+
             for coming_skill in coming_skills:
                 for the_event_competence in the_event_competences:
                     if coming_skill == the_event_competence.needed_skill:
