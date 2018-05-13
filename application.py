@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, url_for, render_template, request,jsonify, session
+from flask import Flask, flash, redirect, url_for, render_template, request, session
 from werkzeug.exceptions import default_exceptions
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
@@ -36,7 +36,8 @@ def show_all():
 
     return render_template("nina.html", events=updated_events)
 
-@app.route('/event_creation', methods = ['GET', 'POST'])
+
+@app.route('/event_creation', methods=['GET', 'POST'])
 def event_creation():
 
     # Forget any event_id
@@ -50,11 +51,11 @@ def event_creation():
 
         else:
             # Validating date column becausse SQLite Date type only accepts Python date objects as input
-            valid_date = datetime.strptime( event_detail['date'], '%d/%m/%Y').date()
+            valid_date = datetime.strptime(event_detail['date'], '%d/%m/%Y').date()
 
             # Update events table
             event = Event(event_detail['title'], event_detail['location'],
-            event_detail['description'], valid_date, event_detail['time'])
+                          event_detail['description'], valid_date, event_detail['time'])
             db.session.add(event)
             db.session.commit()
 
@@ -74,13 +75,13 @@ def event_creation():
     return render_template('event_creation.html')
 
 
-@app.route('/event_voting', methods = ['GET', 'POST'])
+@app.route('/event_voting', methods=['GET', 'POST'])
 def event_voting():
 
     if request.method == 'POST':
         coming_competence = request.form
 
-        if coming_competence :
+        if coming_competence:
 
              # Update competences table
             coming_skills = coming_competence.getlist('coming_skill')
@@ -94,15 +95,8 @@ def event_voting():
 
         return redirect(url_for('show_all'))
 
-    else :
+    else:
         # upload the event to vote
         my_event = Event.query.filter(Event.id == session["my_event_id"]).first()
         db.session.commit()
         return render_template("volunteer.html", my_event=my_event)
-
-
-
-
-
-
-

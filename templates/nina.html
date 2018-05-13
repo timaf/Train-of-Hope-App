@@ -75,9 +75,9 @@
                 <!-- Event details -->
                   <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                     <h4>Title : {{ event.title }}</h4>
-                    <h6>Location : {{ event.location}}</h6>
-                    <h6>Description : {{ event.description}}</h6>
-                    <h6>Date and Time : {{ event.date }} - {{ event.time }} O'clock</h6>
+                    <h6><i class="material-icons mdl-list__item-icon">location_on</i>Location : {{ event.location}}</h6>
+                    <h6><i class="material-icons mdl-list__item-icon">subject</i>Description : {{ event.description}}</h6>
+                    <h6><i class="material-icons mdl-list__item-icon">schedule</i>Date and Time : {{ event.date }} - {{ event.time }} O'clock</h6>
 
                     <!-- yellow circle -->
                     <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
@@ -102,10 +102,10 @@
 
               <!-- Menu for still needed competances -->
               <div>
-                <input type="button" id="btn{{ loop.index0 }}"  value="Remaining competences" class="mdl-button"/>
+                <input type="button" id="btn{{loop.index0}}" value="Remaining competences" class="mdl-button"/>
               </div>
               <div>
-                <ul id="rest">
+                <ul id="hidden_div{{loop.index0}}" style="display:none;">
                     {% for skill in event.competence %}
                       {% if skill.coming_skill=="No one yet" %}
                       <li> {{ skill.needed_skill }}</li>
@@ -116,16 +116,15 @@
 
             <script type="text/javascript">
               $(document).ready(function () {
-                $("#rest").hide();
-                $("#btn{{ loop.index0 }}").click(function () {
-                  $("#rest").show();
+                $("#btn{{loop.index0}}").click(function () {
+                  $("#hidden_div{{loop.index0}}").show();
                   });
               });
+
             </script>
           </section>
         </div>
         {% endfor %}
-
 
       <!-- Design the footer -->
 

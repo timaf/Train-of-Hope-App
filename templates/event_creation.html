@@ -98,8 +98,9 @@
                     </div>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input form="creation" class="mdl-textfield__input" type="text" id="date" name="date">
-                      <label class="mdl-textfield__label" for="date">Add date : dd/mm/yy..</label>
+                      <input form="creation" class="mdl-textfield__input" type="text" id="date" name="date"
+                      pattern="^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/]\d{4}$" >
+                      <label class="mdl-textfield__label" for="date">Add date : dd/mm/yyyy..</label>
                     </div>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -125,7 +126,7 @@
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                   <h5>Which people you need?</h5><br>
 
-                  <form action = "{{ request.path }}" method = "post" id="creation">
+                  <form action = "{{ request.path }}" method = "post" id="creation" onClick=checkForm()>
                     <!-- competances -->
                     <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="competancesTable"><br>
                       <tbody>
@@ -183,8 +184,7 @@
           $('#competancesTable').append('<tr><td class="mdl-data-table__cell--non-numeric"><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><input class="mdl-textfield__input" type="text"  name="skill" ></div><button class="mdl-button  mdl-js-button mdl-button--fab mdl-button--mini-fab "><i class="material-icons">remove</i></button></td></tr>');
       });
 
-    </script>
-
+  </script>
 </html>
 
 

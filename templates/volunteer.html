@@ -104,9 +104,9 @@
                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
                         <thead>
                           <tr>
-                            <th class="mdl-data-table__cell--non-numeric">Location</th>
-                            <th>Description</th>
-                            <th>Date and Time</th>
+                            <th class="mdl-data-table__cell--non-numeric"><i class="material-icons mdl-list__item-icon">location_on</i>Location</th>
+                            <th><i class="material-icons mdl-list__item-icon">subject</i>Description</th>
+                            <th><i class="material-icons mdl-list__item-icon">schedule</i>Date and Time</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -116,7 +116,7 @@
                               <td>{{ my_event.date }} - {{ my_event.time }} O'clock</td>
                           </tr>
                           <tr>
-                            <td class="mdl-data-table__cell--non-numeric" colspan="3"><h4>Needed Competances</h4></td>
+                            <td class="mdl-data-table__cell--non-numeric" colspan="3"><h4><i class="material-icons mdl-list__item-icon">people</i>Needed Competances</h4></td>
                           </tr>
                           {% for skill in my_event.competence %}
                           <tr>
