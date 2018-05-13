@@ -1,11 +1,11 @@
 # Train-of-Hope-App
-An easy-to-use scheduling App .
+** An easy-to-use scheduling App **
 
-Volunteering App by Train of Hope
+** Volunteering App by Train of Hope **
 
-..* Purpose: help coordinating volunteers
+** Purpose:** help coordinating volunteers
 
-..* What’s the problem: Train of hope organization uses Doodle for organizing Volunteers,
+** What’s the problem: ** Train of hope organization uses Doodle for organizing Volunteers,
 and they have larger need for an easy-to-use scheduling app, which takes into consideration their special requirements.
 
 ## I implemented User stories:
@@ -19,7 +19,7 @@ living now in vienna with my familly since two years , I took refugees code cour
 programing skills in order to be able to find a proper job.
 i learned a lot about C, python, flask, javascript .
 
-..* This project was part of the CS50 course that I did.
+* This project was part of the CS50 course that I did.
 
 ## Technology Stack:
 Python3.6, Flask, Sqlalchemy, jinja2, JavaScript
