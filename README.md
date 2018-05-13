@@ -1,11 +1,11 @@
 # Train-of-Hope-App
-** An easy-to-use scheduling App **
+**An easy-to-use scheduling App**
 
-** Volunteering App by Train of Hope **
+**Volunteering App by Train of Hope**
 
-** Purpose:** help coordinating volunteers
+**Purpose:** help coordinating volunteers
 
-** What’s the problem: ** Train of hope organization uses Doodle for organizing Volunteers,
+**What’s the problem:** Train of hope organization uses Doodle for organizing Volunteers,
 and they have larger need for an easy-to-use scheduling app, which takes into consideration their special requirements.
 
 ## I implemented User stories:
