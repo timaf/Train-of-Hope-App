@@ -24,3 +24,6 @@ i learned a lot about C, python, flask, javascript .
 ## Technology Stack:
 Python3.6, Flask, Sqlalchemy, jinja2, JavaScript
 
+## Link for short vedio descriping my project :
+https://youtu.be/WVmbQHCRHSc
+
