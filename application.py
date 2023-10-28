@@ -43,6 +43,8 @@ def event_creation():
     # Forget any event_id
     session.clear()
 
+
+
     if request.method == 'POST':
 
         event_detail = request.form
